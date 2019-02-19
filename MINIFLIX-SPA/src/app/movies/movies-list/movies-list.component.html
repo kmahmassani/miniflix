@@ -1,0 +1,25 @@
+<div class="row justify-content-around" *ngIf="movies">
+  <div *ngFor="let movie of movies.result" class="col-lg-3 col-md-3 col-sm-6">
+    <app-movie-card [movie]="movie"></app-movie-card>
+  </div>
+  <div *ngIf="!movies" class="text-center spinner-holder">
+    <i class="fa fa-spinner fa-spin fa-3x"></i>
+  </div>
+</div>
+<div
+  class="d-flex justify-content-around"
+  *ngIf="movies && movies.pagination.totalPages > 1"
+>
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="movies.pagination.totalItems"
+    [itemsPerPage]="movies.pagination.itemsPerPage"
+    (pageChanged)="pageChanged($event)"
+    [(ngModel)]="movies.pagination.currentPage"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

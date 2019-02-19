@@ -1,0 +1,39 @@
+.img-background {
+  height: calc(100vh - 56px);
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right;
+  position: absolute;
+  z-index: -100;
+}
+
+.img-background::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(
+    to left,
+    transparent,
+    #272b30 80%,
+    #272b30 100%
+  );
+  height: calc(100vh - 56px);
+  width: 100vw;
+  content: '';
+}
+
+.card-footer {
+  padding: 10px 15px;
+  border-top: none;
+}
+
+.img-thumbnail {
+  border: 0;
+  padding: 0;
+  max-width: 500px;
+  max-height: 100%;
+}
+
+.jumbotron {
+  background-color: rgba(28, 30, 34, 0.9);
+}

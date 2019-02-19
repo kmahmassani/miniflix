@@ -1,0 +1,42 @@
+<div class="card mb-4 mt-4" [routerLink]="['/movies/', movie.id]">
+  <div class="tags animate">
+    <span
+      class="badge badge-secondary mr-1"
+      *ngFor="let genre of movie.genres"
+      >{{ genre }}</span
+    >
+  </div>
+  <div class="release-date animate">
+    <span class="badge badge-secondary mr-1">{{
+      movie.releaseDate | date
+    }}</span>
+  </div>
+  <div class="card-img-wrapper">
+    <img
+      src="{{ 'https://image.tmdb.org/t/p/w400' + movie.posterPath }}"
+      alt="{{ movie.title }}"
+      class="card-img-top"
+    />
+    <div class="member-title animate">
+      <h4 class="card-title text-center mb-1 text-white mt-1">
+        {{ movie.title }}
+      </h4>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <i class="fa fa-heart text-danger"></i>
+          {{ movie.voteAverage }}
+        </li>
+        <li class="list-inline-item">
+          <i class="fa fa-fire text-warning"></i>
+          {{ movie.popularity }}
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-primary" [routerLink]="['/movies/', movie.id]">
+            View
+            <i class="fa fa-angle-right"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

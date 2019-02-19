@@ -1,0 +1,43 @@
+<div
+  class="img-background"
+  [style.backgroundImage]="
+    'url(https://image.tmdb.org/t/p/original/' + movie.backdropPath + ')'
+  "
+></div>
+<div class="mt-4 mr-3 ml-3">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card text-white bg-primary">
+        <img
+          class="card-img-top img-thumbnail"
+          src="{{ 'https://image.tmdb.org/t/p/w500/' + movie.posterPath }}"
+          alt="{{ movie.title }}"
+        />
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="jumbotron">
+        <h1 class="display-3">{{ movie.title }}</h1>
+        <h4>
+          <i class="fa fa-fire text-warning"></i> {{ movie.popularity }}
+          <i class="fa fa-heart text-danger"></i> {{ movie.voteAverage }}
+          <i class="fa fa-users text-info"></i> {{ movie.voteCount }}
+        </h4>
+        <div>
+          {{ movie.releaseDate | date }}
+        </div>
+        <div>
+          <span
+            class="badge badge-secondary mr-1"
+            *ngFor="let genre of movie.genres"
+            >{{ genre }}</span
+          >
+        </div>
+        <hr class="my-4" />
+        <p class="lead">
+          {{ movie.overview }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
